@@ -10,7 +10,6 @@ This repository contains the code and resources for building a Knowledge Graph f
 3. [Installation](#installation)
 4. [Usage](#usage)
 5. [Data Pipeline](#data-pipeline)
-6. 
 
 ---
 
