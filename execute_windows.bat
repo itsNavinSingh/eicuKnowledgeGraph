@@ -1,6 +1,14 @@
 @echo off
 setlocal enabledelayedexpansion
 
+:: Create a virtual environment
+echo Creating virtual environment...
+python -m venv venv
+
+:: Activate the virtual environment
+echo Activating virtual environment...
+call venv\Scripts\activate
+
 :: Install dependencies
 echo Installing required Python packages...
 pip install -r requirements.txt
