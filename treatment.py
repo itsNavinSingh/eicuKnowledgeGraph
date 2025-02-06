@@ -20,7 +20,7 @@ def main(inputpath):
         if pd.notnull(row[cols[2]]):
             g.add((uid, eicu["hasTreatmentOffset"], Literal(row[cols[2]], datatype=XSD.integer)))
         if pd.notnull(row[cols[3]]):
-            g.add((uid, eicu["hasTreatmentString"], row[cols[3]]))
+            g.add((uid, eicu["hasTreatmentString"], Literal(row[cols[3]])))
         if pd.notnull(row[cols[4]]):
             g.add((uid, eicu["hasActiveUponDischarge"], Literal(row[cols[4]], datatype=XSD.boolean)))
 
