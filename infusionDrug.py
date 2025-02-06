@@ -20,9 +20,10 @@ def main(inputpath):
         if pd.notnull(row[cols[2]]):
             g.add((uid, eicu["hasInfusionOffset"], Literal(row[cols[2]], datatype=XSD.integer)))
         if pd.notnull(row[cols[3]]):
-            g.add((uid, eicu["hasDrugName"], row[cols[3]]))
+            g.add((uid, eicu["hasDrugName"], Literal(row[cols[3]])))
         if pd.notnull(row[cols[4]]):
-            g.add((uid, eicu["hasDrugRate"], row[cols[4]]))
+            # has UD and ERROR. otherwise it will be XSD.float
+            g.add((uid, eicu["hasDrugRate"], Literal(row[cols[4]])))
         if pd.notnull(row[cols[5]]):
             g.add((uid, eicu["hasInfusionRate"], Literal(row[cols[5]], datatype=XSD.float)))
         if pd.notnull(row[cols[6]]):
