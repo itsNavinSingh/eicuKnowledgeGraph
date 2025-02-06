@@ -19,12 +19,12 @@ def main(inputpath):
         g.add((ex[f"PatientUnitStay{row[cols[1]]}"], eicu.hasCarePlanInfectiousDisease, uid))
         g.add((uid, eicu["hasActiveUponDischarge"], Literal(row[cols[2]], datatype=XSD.boolean)))
         g.add((uid, eicu["hascarePlanInfectiousDiseaseOffset"], Literal(row[cols[3]], datatype=XSD.integer)))
-        g.add((uid, eicu["hasInfectDiseaseSite"], row[cols[4]]))
-        g.add((uid, eicu["hasInfectDiseaseAssessment"], row[cols[5]]))
+        g.add((uid, eicu["hasInfectDiseaseSite"], Literal(row[cols[4]])))
+        g.add((uid, eicu["hasInfectDiseaseAssessment"], Literal(row[cols[5]])))
         if pd.notnull(row[cols[6]]):
-            g.add((uid, eicu["hasResponseToTherapy"], row[cols[6]]))
+            g.add((uid, eicu["hasResponseToTherapy"], Literal(row[cols[6]])))
         if pd.notnull(row[cols[7]]):
-            g.add((uid, eicu["hasTreatment"], row[cols[7]]))
+            g.add((uid, eicu["hasTreatment"], Literal(row[cols[7]])))
         
     g.serialize("result/carePlanInfectiousDisease.ttl", format="turtle")
     return
