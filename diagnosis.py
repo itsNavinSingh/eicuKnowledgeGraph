@@ -21,11 +21,11 @@ def main(inputpath):
         if pd.notnull(row[cols[3]]):
             g.add((uid, eicu["hasDiagnosisOffset"], Literal(row[cols[3]], datatype=XSD.integer)))
         if pd.notnull(row[cols[4]]):
-            g.add((uid, eicu["hasDiagnosisString"], row[cols[4]]))
+            g.add((uid, eicu["hasDiagnosisString"], Literal(row[cols[4]])))
         if pd.notnull(row[cols[5]]):
-            g.add((uid, eicu["hasIcd9Code"], row[cols[5]]))
+            g.add((uid, eicu["hasIcd9Code"], Literal(row[cols[5]])))
         if pd.notnull(row[cols[6]]):
-            g.add((uid, eicu["hasDiagnosisPriority"], row[cols[6]]))
+            g.add((uid, eicu["hasDiagnosisPriority"], Literal(row[cols[6]])))
         
     g.serialize("result/diagnosis.ttl", format="turtle")
     return
