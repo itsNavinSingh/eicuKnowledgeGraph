@@ -17,13 +17,13 @@ def main(inputpath):
         g.add((uid, RDF.type, eicu.PhysicalExam))
         g.add((ex[f"PatientUnitStay{row[cols[1]]}"], eicu.hasPhysicalExam, uid))
         if pd.notnull(row[cols[2]]):
-            g.add((uid, eicu["hasPhysicalExamOffset"], row[cols[2]]))
+            g.add((uid, eicu["hasPhysicalExamOffset"], Literal(row[cols[2]], datatype=XSD.integer)))
         if pd.notnull(row[cols[3]]):
-            g.add((uid, eicu["hasPhysicalExamPath"], row[cols[3]]))
+            g.add((uid, eicu["hasPhysicalExamPath"], Literal(row[cols[3]])))
         if pd.notnull(row[cols[4]]):
-            g.add((uid, eicu["hasPhysicalExamValue"], row[cols[4]]))
+            g.add((uid, eicu["hasPhysicalExamValue"], Literal(row[cols[4]])))
         if pd.notnull(row[cols[5]]):
-            g.add((uid, eicu["hasPhysicalExamText"], row[cols[5]]))
+            g.add((uid, eicu["hasPhysicalExamText"], Literal(row[cols[5]])))
 
     g.serialize("result/physicalExam.ttl", format="turtle")
     return
