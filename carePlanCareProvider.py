@@ -18,13 +18,13 @@ def main(inputpath):
         g.add((ex[f"PatientUnitStay{row[cols[1]]}"], eicu.hasCarePlanCareProvider, uid))
         g.add((uid, eicu["hasCareProviderSaveOffset"], Literal(row[cols[2]], datatype=XSD.integer)))
         if pd.notnull(row[cols[3]]):
-            g.add((uid, eicu["hasProviderType"], row[cols[3]]))
+            g.add((uid, eicu["hasProviderType"], Literal(row[cols[3]])))
         if pd.notnull(row[cols[4]]):
-            g.add((uid, eicu["hasSpecialty"], row[cols[4]]))
+            g.add((uid, eicu["hasSpecialty"], Literal(row[cols[4]])))
         if pd.notnull(row[cols[5]]):
-            g.add((uid, eicu["hasInterventionCategory"], row[cols[5]]))
+            g.add((uid, eicu["hasInterventionCategory"], Literal(row[cols[5]])))
         if pd.notnull(row[cols[6]]):
-            g.add((uid, eicu["hasManagingPhysician"], row[cols[6]]))
+            g.add((uid, eicu["hasManagingPhysician"], Literal(row[cols[6]])))
         if pd.notnull(row[cols[7]]):
             g.add((uid, eicu["hasActiveUponDischarge"], Literal(row[cols[7]], datatype=XSD.boolean)))
         
