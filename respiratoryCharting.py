@@ -22,11 +22,11 @@ def main(inputpath):
         if pd.notnull(row[cols[3]]):
             g.add((uid, eicu["hasRespChartEntryOffset"], Literal(row[cols[3]], datatype=XSD.integer)))
         if pd.notnull(row[cols[4]]):
-            g.add((uid, eicu["hasRespChartTypeCat"], row[cols[4]]))
+            g.add((uid, eicu["hasRespChartTypeCat"], Literal(row[cols[4]])))
         if pd.notnull(row[cols[5]]):
-            g.add((uid, eicu["hasRespChartValueLabel"], row[cols[5]]))
+            g.add((uid, eicu["hasRespChartValueLabel"], Literal(row[cols[5]])))
         if pd.notnull(row[cols[6]]):
-            g.add((uid, eicu["hasRespChartValue"], row[cols[6]]))
+            g.add((uid, eicu["hasRespChartValue"], Literal(row[cols[6]])))
 
     g.serialize("result/respiratoryCharting.ttl", format="turtle")
     return
