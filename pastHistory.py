@@ -19,10 +19,11 @@ def main(inputpath):
         g.add((ex[f"PatientUnitStay{row[cols[1]]}"], eicu.hasPastHistory, uid))
         g.add((uid, eicu["hasPastHistoryOffset"], Literal(row[cols[2]], datatype=XSD.integer)))
         g.add((uid, eicu["hasPastHistoryEnteredOffset"], Literal(row[cols[3]], datatype=XSD.integer)))
-        g.add((uid, eicu["hasPastHistoryNoteType"], row[cols[4]]))
-        g.add((uid, eicu["hasPastHistoryPath"], row[cols[5]]))
-        g.add((uid, eicu["hasPastHistoryValue"], row[cols[6]]))
-        g.add((uid, eicu["hasPastHistoryValueText"], row[cols[7]]))
+        g.add((uid, eicu["hasPastHistoryNoteType"], Literal(row[cols[4]])))
+        g.add((uid, eicu["hasPastHistoryPath"], Literal(row[cols[5]])))
+        g.add((uid, eicu["hasPastHistoryValue"], Literal(row[cols[7]])))
+        # not needed, col 6, 7 same
+        # g.add((uid, eicu["hasPastHistoryValueText"], row[cols[7]]))
 
     g.serialize("result/pastHistory.ttl", format="turtle")
     return
