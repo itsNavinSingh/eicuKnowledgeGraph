@@ -22,13 +22,13 @@ def main(inputpath):
         if pd.notnull(row[cols[3]]):
             g.add((uid, eicu["hasNoteEnteredOffset"], Literal(row[cols[3]], datatype=XSD.integer)))
         if pd.notnull(row[cols[4]]):
-            g.add((uid, eicu["hasNoteType"], row[cols[4]]))
+            g.add((uid, eicu["hasNoteType"], Literal(row[cols[4]])))
         if pd.notnull(row[cols[5]]):
-            g.add((uid, eicu["hasNotePath"], row[cols[5]]))
+            g.add((uid, eicu["hasNotePath"], Literal(row[cols[5]])))
         if pd.notnull(row[cols[6]]):
-            g.add((uid, eicu["hasNoteValue"], row[cols[6]]))
+            g.add((uid, eicu["hasNoteValue"], Literal(row[cols[6]])))
         if pd.notnull(row[cols[7]]):
-            g.add((uid, eicu["hasNoteText"], row[cols[7]]))
+            g.add((uid, eicu["hasNoteText"], Literal(row[cols[7]])))
     g.serialize("result/note.ttl", format="turtle")
     return
 
