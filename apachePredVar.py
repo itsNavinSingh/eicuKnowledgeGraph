@@ -48,7 +48,7 @@ def main(inputpath):
         if pd.notnull(row[cols[16]]):
             g.add((uid, eicu["hasAge"], Literal(row[cols[16]], datatype=XSD.integer)))
         if pd.notnull(row[cols[17]]):
-            g.add((uid, eicu["hasAdmitDiagnosis"], row[cols[17]]))
+            g.add((uid, eicu["hasAdmitDiagnosis"], Literal(row[cols[17]])))
         if pd.notnull(row[cols[18]]):
             g.add((uid, eicu["hasThrombolytics"], Literal(row[cols[18]], datatype=XSD.integer)))
         if pd.notnull(row[cols[19]]):
