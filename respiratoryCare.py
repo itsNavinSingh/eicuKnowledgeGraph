@@ -22,11 +22,11 @@ def main(inputpath):
         if pd.notnull(row[cols[3]]):
             g.add((uid, eicu["hasCurrentHistorySeqNum"], Literal(row[cols[3]], datatype=XSD.integer)))
         if pd.notnull(row[cols[4]]):
-            g.add((uid, eicu["hasAirwayType"], row[cols[4]]))
+            g.add((uid, eicu["hasAirwayType"], Literal(row[cols[4]])))
         if pd.notnull(row[cols[5]]):
-            g.add((uid, eicu["hasAirwaySize"], row[cols[5]]))
+            g.add((uid, eicu["hasAirwaySize"], Literal(row[cols[5]])))
         if pd.notnull(row[cols[6]]):
-            g.add((uid, eicu["hasAirwayPosition"], row[cols[6]]))
+            g.add((uid, eicu["hasAirwayPosition"], Literal(row[cols[6]])))
         if pd.notnull(row[cols[7]]):
             g.add((uid, eicu["hasCuffPressure"], Literal(row[cols[7]], datatype=XSD.float)))
         if pd.notnull(row[cols[8]]):
@@ -38,7 +38,7 @@ def main(inputpath):
         if pd.notnull(row[cols[11]]):
             g.add((uid, eicu["hasPriorVentEndOffset"], Literal(row[cols[11]], datatype=XSD.integer)))
         if pd.notnull(row[cols[12]]):
-            g.add((uid, eicu["hasApneaParams"], row[cols[12]]))
+            g.add((uid, eicu["hasApneaParams"], Literal(row[cols[12]])))
         if pd.notnull(row[cols[13]]):
             g.add((uid, eicu["hasLowExhMvLimit"], Literal(row[cols[13]], datatype=XSD.float)))
         if pd.notnull(row[cols[14]]):
@@ -66,21 +66,21 @@ def main(inputpath):
         if pd.notnull(row[cols[25]]):
             g.add((uid, eicu["hasCpapLimit"], Literal(row[cols[24]], datatype=XSD.float)))
         if pd.notnull(row[cols[26]]):
-            g.add((uid, eicu["hasSetApneaInterval"], row[cols[26]]))
+            g.add((uid, eicu["hasSetApneaInterval"], Literal(row[cols[26]])))
         if pd.notnull(row[cols[27]]):
-            g.add((uid, eicu["hasSetApneaTv"], row[cols[27]]))
+            g.add((uid, eicu["hasSetApneaTv"], Literal(row[cols[27]])))
         if pd.notnull(row[cols[28]]):
-            g.add((uid, eicu["hasSetApnealPpeepHigh"], row[cols[28]]))
+            g.add((uid, eicu["hasSetApnealPpeepHigh"], Literal(row[cols[28]])))
         if pd.notnull(row[cols[29]]):
             g.add((uid, eicu["hasSetApneaRr"], Literal(row[cols[29]], datatype=XSD.float)))
         if pd.notnull(row[cols[30]]):
-            g.add((uid, eicu["hasSetApneaPeakFlow"], row[cols[30]]))
+            g.add((uid, eicu["hasSetApneaPeakFlow"], Literal(row[cols[30]])))
         if pd.notnull(row[cols[31]]):
-            g.add((uid, eicu["hasSetApneaInspTime"], row[cols[31]]))
+            g.add((uid, eicu["hasSetApneaInspTime"], Literal(row[cols[31]])))
         if pd.notnull(row[cols[32]]):
-            g.add((uid, eicu["hasSetApneaIe"], row[cols[32]]))
+            g.add((uid, eicu["hasSetApneaIe"], Literal(row[cols[32]])))
         if pd.notnull(row[cols[33]]):
-            g.add((uid, eicu["hasSetApneaFio2"], row[cols[33]]))
+            g.add((uid, eicu["hasSetApneaFio2"], Literal(row[cols[33]])))
 
     g.serialize("result/respiratoryCare.ttl", format="turtle")
     return
