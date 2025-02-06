@@ -19,11 +19,11 @@ def main(inputpath):
         g.add((ex[f"PatientUnitStay{row[cols[1]]}"], eicu.hasCustomLab, uid))
         g.add((uid, eicu["hasCustomLabOffset"], Literal(row[cols[2]], datatype=XSD.integer)))
         g.add((uid, eicu["hasCustomLabTypeId"], Literal(row[cols[3]], datatype=XSD.integer)))
-        g.add((uid, eicu["hasCustomLabName"], row[cols[4]]))
+        g.add((uid, eicu["hasCustomLabName"], Literal(row[cols[4]])))
         if pd.notnull(row[cols[5]]):
             g.add((uid, eicu["hasCustomLabResult"], Literal(row[cols[5]], datatype=XSD.float)))
         if pd.notnull(row[cols[6]]):
-            g.add((uid, eicu["hasCustomLabValueText"], row[cols[6]]))
+            g.add((uid, eicu["hasCustomLabValueText"], Literal(row[cols[6]])))
         
     g.serialize("result/customLab.ttl", format="turtle")
     return
