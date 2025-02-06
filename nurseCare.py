@@ -18,17 +18,17 @@ def main(inputpath):
         g.add((uid, RDF.type, eicu.NurseCare))
         g.add((ex[f"PatientUnitStay{row[cols[1]]}"], eicu.hasNurseCare, uid))
         if pd.notnull(row[cols[2]]):
-            g.add((uid, eicu["hasCellLabel"], row[cols[2]]))
+            g.add((uid, eicu["hasCellLabel"], Literal(row[cols[2]])))
         if pd.notnull(row[cols[3]]):
             g.add((uid, eicu["hasNurseCareOffset"], Literal(row[cols[3]], datatype=XSD.integer)))
         if pd.notnull(row[cols[4]]):
             g.add((uid, eicu["hasNurseCareEntryOffset"], Literal(row[cols[4]], datatype=XSD.integer)))
         if pd.notnull(row[cols[5]]):
-            g.add((uid, eicu["hasCellAttributePath"], row[cols[5]]))
+            g.add((uid, eicu["hasCellAttributePath"], Literal(row[cols[5]])))
         if pd.notnull(row[cols[6]]):
-            g.add((uid, eicu["hasCellAttribute"], row[cols[6]]))
+            g.add((uid, eicu["hasCellAttribute"], Literal(row[cols[6]])))
         if pd.notnull(row[cols[7]]):
-            g.add((uid, eicu["hasCellAttributeValue"], row[cols[7]]))
+            g.add((uid, eicu["hasCellAttributeValue"], Literal(row[cols[7]])))
     g.serialize("result/nurseCare.ttl", format="turtle")
     return
 
