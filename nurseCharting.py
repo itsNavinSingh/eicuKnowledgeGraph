@@ -20,13 +20,13 @@ def main(inputpath):
         if pd.notnull(row[cols[3]]):
             g.add((uid, eicu["hasNursingChartEntryOffset"], Literal(row[cols[3]], datatype=XSD.integer)))
         if pd.notnull(row[cols[4]]):
-            g.add((uid, eicu["hasNursingChartCellTypeCat"], row[cols[4]]))
+            g.add((uid, eicu["hasNursingChartCellTypeCat"], Literal(row[cols[4]])))
         if pd.notnull(row[cols[5]]):
-            g.add((uid, eicu["hasNursingChartCellTypeValLabel"], row[cols[5]]))
+            g.add((uid, eicu["hasNursingChartCellTypeValLabel"], Literal(row[cols[5]])))
         if pd.notnull(row[cols[6]]):
-            g.add((uid, eicu["hasNursingChartCellTypeValName"], row[cols[6]]))
+            g.add((uid, eicu["hasNursingChartCellTypeValName"], Literal(row[cols[6]])))
         if pd.notnull(row[cols[7]]):
-            g.add((uid, eicu["hasNursingChartValue"], row[cols[7]]))
+            g.add((uid, eicu["hasNursingChartValue"], Literal(row[cols[7]])))
 
     g.serialize("result/nurseCharting.ttl", format="turtle")
     return
