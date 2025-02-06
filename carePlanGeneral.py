@@ -21,9 +21,9 @@ def main(inputpath):
         if pd.notnull(row[cols[3]]):
             g.add((uid, eicu["hasCarePlanGeneralItemOffset"], Literal(row[cols[3]], datatype=XSD.integer)))
         if pd.notnull(row[cols[4]]):
-            g.add((uid, eicu["hasCarePlanGeneralGroup"], row[cols[4]]))
+            g.add((uid, eicu["hasCarePlanGeneralGroup"], Literal(row[cols[4]])))
         if pd.notnull(row[cols[5]]):
-            g.add((uid, eicu["hasCarePlanGeneralItemValue"], row[cols[5]]))
+            g.add((uid, eicu["hasCarePlanGeneralItemValue"], Literal(row[cols[5]])))
         
     g.serialize("result/carePlanGeneral.ttl", format="turtle")
     return
