@@ -30,9 +30,9 @@ def main(inputpath):
         if pd.notnull(row[cols[7]]):
             g.add((uid, eicu["hasIntakeOutputEntryOffset"], Literal(row[cols[7]], datatype=XSD.integer)))
         if pd.notnull(row[cols[8]]):
-            g.add((uid, eicu["hasCellPath"], row[cols[8]]))
+            g.add((uid, eicu["hasCellPath"], Literal(row[cols[8]])))
         if pd.notnull(row[cols[9]]):
-            g.add((uid, eicu["hasCellLabel"], row[cols[9]]))
+            g.add((uid, eicu["hasCellLabel"], Literal(row[cols[9]])))
         if pd.notnull(row[cols[10]]):
             g.add((uid, eicu["hasCellValue"], Literal(row[cols[10]], datatype=XSD.float)))
 
