@@ -19,13 +19,13 @@ def main(inputpath):
         g.add((ex[f"PatientUnitStay{row[cols[1]]}"], eicu.hasMicroLab, uid))
         g.add((uid, eicu["hasCultureTakenOffset"], Literal(row[cols[2]], datatype=XSD.integer)))
         if pd.notnull(row[cols[3]]):
-            g.add((uid, eicu["hasCultureSite"], row[cols[3]]))
+            g.add((uid, eicu["hasCultureSite"], Literal(row[cols[3]])))
         if pd.notnull(row[cols[4]]):
-            g.add((uid, eicu["hasOrganism"], row[cols[4]]))
+            g.add((uid, eicu["hasOrganism"], Literal(row[cols[4]])))
         if pd.notnull(row[cols[5]]):
-            g.add((uid, eicu["hasAntibiotic"], row[cols[5]]))
+            g.add((uid, eicu["hasAntibiotic"], Literal(row[cols[5]])))
         if pd.notnull(row[cols[6]]):
-            g.add((uid, eicu["hasSensitivityLevel"], row[cols[6]]))
+            g.add((uid, eicu["hasSensitivityLevel"], Literal(row[cols[6]])))
 
     g.serialize("result/microLab.ttl", format="turtle")
     return
